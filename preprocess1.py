@@ -27,7 +27,11 @@ with open(r'C:/Users/Shree/Desktop/train-v1.1.json') as file:
             for qas in paragraphs['qas']:
                 for answers in qas['answers']:
                     answer_data.append(answers['text'])
+                    answerstart_data.append(answers['answer_start'])
     
+
+answer_startdata=pd.DataFrame({'answer':answer_data,'answer_start':answerstart_data,'question_id':questionid_data,'questions':question_data})
+print(answer_startdata.head(3))
                 
 
 question_answer=pd.DataFrame({'question':question_data,'ques_id':questionid_data})
